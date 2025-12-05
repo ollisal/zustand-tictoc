@@ -17,3 +17,8 @@ Modern conventions:
 - Consistent formatting based on .prettierrc and .editorconfig
 - Assume recent evergreen browser CSS support
 - Use ESM imports/exports in both app and scaffolding (package.json is configured with "type": "module")
+
+Styling with stylex:
+
+- Do not use shorthand properties like "margin", "animation" but individual attributes like "animationName" etc
+- More details see eslint.config.js stylex rules

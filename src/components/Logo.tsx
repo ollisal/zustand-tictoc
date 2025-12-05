@@ -1,17 +1,47 @@
+import * as stylex from '@stylexjs/stylex'
+
 import reactLogoSvg from '../assets/react.svg'
 import viteLogoSvg from '/vite.svg'
+
+const reactSpin = stylex.keyframes({
+  from: { transform: 'rotate(0deg)' },
+  to: { transform: 'rotate(360deg)' },
+})
+
+const styles = stylex.create({
+  logo: {
+    height: '6rem',
+    padding: '1.5rem',
+    willChange: 'filter',
+    transition: 'filter 300ms ease-in-out',
+
+    ':hover': {
+      filter: 'drop-shadow(0 0 2rem #646cffaa)',
+    },
+  },
+
+  reactLogo: {
+    animationName: reactSpin,
+    animationDuration: '20s',
+    animationTimingFunction: 'linear',
+
+    ':hover': {
+      filter: 'drop-shadow(0 0 2em #61dafbaa)',
+    },
+  },
+})
 
 interface LogoProps {
   linkUrl: string
   imgSrc: string
   imgAlt: string
-  imgClassName?: string
+  extraStyles?: stylex.StyleXStyles[]
 }
 
-export const Logo = ({ linkUrl, imgSrc, imgAlt, imgClassName }: LogoProps) => {
+export const Logo = ({ linkUrl, imgSrc, imgAlt, extraStyles = [] }: LogoProps) => {
   return (
     <a href={linkUrl} target="_blank">
-      <img src={imgSrc} className={`logo ${imgClassName}`} alt={imgAlt} />
+      <img src={imgSrc} alt={imgAlt} {...stylex.props(styles.logo, ...extraStyles)} />
     </a>
   )
 }
@@ -22,7 +52,7 @@ export const ReactLogo = () => {
       linkUrl="https://react.dev"
       imgSrc={reactLogoSvg}
       imgAlt="React logo"
-      imgClassName="react"
+      extraStyles={[styles.reactLogo]}
     />
   )
 }
