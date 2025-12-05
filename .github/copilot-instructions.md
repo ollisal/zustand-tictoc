@@ -1,6 +1,7 @@
 This is a small React project written in Typescript.
 
 React version: 19
+State management: Zustand
 Build tool: Vite
 Linting: ESLint
 Formatting: Prettier
