@@ -16,3 +16,4 @@ Modern conventions:
 - Do not use deprecated APIs
 - Consistent formatting based on .prettierrc and .editorconfig
 - Assume recent evergreen browser CSS support
+- Use ESM imports/exports in both app and scaffolding (package.json is configured with "type": "module")
