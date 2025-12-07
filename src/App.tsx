@@ -1,7 +1,14 @@
-import './App.css'
+import * as stylex from '@stylexjs/stylex'
+
 import { Card } from './components/Card'
 import { ViteLogo, ReactLogo } from './components/Logo'
 import { useCounter } from './store/counter'
+
+const styles = stylex.create({
+  readTheDocs: {
+    color: '#888',
+  },
+})
 
 function App() {
   const { count, increment: incrementCount } = useCounter()
@@ -22,7 +29,7 @@ function App() {
         </p>
       </Card>
 
-      <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
+      <p {...stylex.props(styles.readTheDocs)}>Click on the Vite and React logos to learn more</p>
     </>
   )
 }
