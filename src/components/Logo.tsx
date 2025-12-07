@@ -10,23 +10,26 @@ const reactSpin = stylex.keyframes({
 
 const styles = stylex.create({
   logo: {
-    height: '6rem',
     padding: '1.5rem',
+    height: '6rem',
+
     willChange: 'filter',
     transition: 'filter 300ms ease-in-out',
-
-    ':hover': {
-      filter: 'drop-shadow(0 0 2rem #646cffaa)',
+    filter: {
+      default: null,
+      ':hover': 'drop-shadow(0 0 2rem #646cffaa)',
     },
   },
 
+  // TODO use StyleX variants?
   reactLogo: {
     animationName: reactSpin,
     animationDuration: '20s',
     animationTimingFunction: 'linear',
 
-    ':hover': {
-      filter: 'drop-shadow(0 0 2em #61dafbaa)',
+    filter: {
+      default: null,
+      ':hover': 'drop-shadow(0 0 2em #61dafbaa)',
     },
   },
 })

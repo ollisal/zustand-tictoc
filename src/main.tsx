@@ -8,8 +8,11 @@ import App from './App.tsx'
 const styles = stylex.create({
   root: {
     maxWidth: '1280px',
-    margin: '0 auto',
+
     padding: '2rem',
+
+    marginLeft: 'auto',
+    marginRight: 'auto',
     textAlign: 'center',
   },
 })

@@ -20,5 +20,6 @@ Modern conventions:
 
 Styling with stylex:
 
-- Do not use shorthand properties like "margin", "animation" but individual attributes like "animationName" etc
+- Multi-valued shorthand properties margin, padding, border, font not allowed
+- Use new pseudo-class and nesting syntax with a "default" and other states, not legacy overriding with nested pseudo blocks.
 - More details see eslint.config.js stylex rules
