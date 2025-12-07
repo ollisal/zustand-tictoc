@@ -7,6 +7,5 @@ Project structure based on official vite react-ts template using create-vite.
 ## TODO
 
 - Use StyleX variables/theme
-- StyleX replacements for global tagname-selector styles in index.css
 - Add zustand, adapt starter app state handling
 - Follow Zustand tictactoe tutorial, adapted to this stack
