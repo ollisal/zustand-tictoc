@@ -36,8 +36,11 @@ const hoverColorVariants = stylex.create({
 const animationVariants = stylex.create({
   default: {},
   react: {
-    animationName: reactSpin,
+    animationName: {
+      '@media (prefers-reduced-motion: no-preference)': reactSpin,
+    },
     animationDuration: '20s',
+    animationIterationCount: 'infinite',
     animationTimingFunction: 'linear',
   },
 })
