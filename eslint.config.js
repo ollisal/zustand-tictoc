@@ -23,6 +23,12 @@ export default defineConfig([
       '@stylexjs': stylexlint,
     },
     rules: {
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          argsIgnorePattern: '^_',
+        },
+      ],
       '@stylexjs/valid-styles': 'error',
       '@stylexjs/enforce-extension': 'error',
       '@stylexjs/no-legacy-contextual-styles': 'error',
