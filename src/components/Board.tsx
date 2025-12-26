@@ -13,23 +13,13 @@ const styles = stylex.create({
 
 export const Board = () => {
   const squares = useGameStore((state) => state.squares)
-  const setSquares = useGameStore((state) => state.setSquares)
+  const playTurn = useGameStore((state) => state.playTurn)
 
-  function onSquareClicked(index: number) {
-    if (squares[index] !== null) {
-      return
-    }
-
-    const nextSquares = squares.slice()
-    nextSquares[index] = 'X' // TODO turns
-
-    setSquares(nextSquares)
-  }
-
+  // TODO avoid creating new callbacks on each render
   return (
     <div {...stylex.props(styles.board)}>
       {squares.map((square, index) => (
-        <Square key={index} value={square} onClick={() => onSquareClicked(index)} />
+        <Square key={index} value={square} onClick={() => playTurn(index)} />
       ))}
     </div>
   )
