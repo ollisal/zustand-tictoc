@@ -3,6 +3,7 @@ import * as stylex from '@stylexjs/stylex'
 import { MainHeading } from './components/Heading'
 import { ViteLogo, ReactLogo } from './components/Logo'
 import { Board } from './components/Board'
+import { StatusRow } from './components/StatusRow'
 
 const styles = stylex.create({
   readTheDocs: {
@@ -20,6 +21,7 @@ function App() {
 
       <MainHeading>Vite + React + Zustand</MainHeading>
 
+      <StatusRow />
       <Board />
 
       <p {...stylex.props(styles.readTheDocs)}>Click on the Vite and React logos to learn more</p>
