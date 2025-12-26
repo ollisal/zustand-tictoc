@@ -1,5 +1,6 @@
 import * as stylex from '@stylexjs/stylex'
 import { Square } from './Square'
+import { useGameStore } from '../store/game'
 
 const styles = stylex.create({
   board: {
@@ -11,13 +12,25 @@ const styles = stylex.create({
 })
 
 export const Board = () => {
+  const squares = useGameStore((state) => state.squares)
+  const setSquares = useGameStore((state) => state.setSquares)
+
+  function onSquareClicked(index: number) {
+    if (squares[index] !== null) {
+      return
+    }
+
+    const nextSquares = squares.slice()
+    nextSquares[index] = 'X' // TODO turns
+
+    setSquares(nextSquares)
+  }
+
   return (
     <div {...stylex.props(styles.board)}>
-      {Array.from({ length: 3 }).map((_, _rowIndex) =>
-        Array.from({ length: 3 }).map((_, _colIndex) => {
-          return <Square value={null} />
-        })
-      )}
+      {squares.map((square, index) => (
+        <Square key={index} value={square} onClick={() => onSquareClicked(index)} />
+      ))}
     </div>
   )
 }
